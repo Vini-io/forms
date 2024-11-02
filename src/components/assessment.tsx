@@ -23,35 +23,138 @@ export default function Assessment() {
         formOBJ.star = starValue
 
         if (starValue == 1) {
-            document.querySelector(".start_1").src = "/star_active.png"
-            document.querySelector(".start_2").src = "/star.png"
-            document.querySelector(".start_3").src = "/star.png"
-            document.querySelector(".start_4").src = "/star.png"
-            document.querySelector(".start_5").src = "/star.png"
+            const star1 = document.querySelector(".start_1") as HTMLImageElement | null;
+            if (star1) {
+                star1.src = "/star_active.png";
+            }
+
+            const star2 = document.querySelector(".start_2") as HTMLImageElement | null;
+            if (star2) {
+                star2.src = "/star.png";
+            }
+
+            const star3 = document.querySelector(".start_3") as HTMLImageElement | null;
+            if (star3) {
+                star3.src = "/star.png";
+            }
+
+            const star4 = document.querySelector(".start_4") as HTMLImageElement | null;
+            if (star4) {
+                star4.src = "/star.png";
+            }
+
+            const star5 = document.querySelector(".start_5") as HTMLImageElement | null;
+            if (star5) {
+                star5.src = "/star.png";
+            }
+
         } else if (starValue == 2) {
-            document.querySelector(".start_1").src = "/star_active.png"
-            document.querySelector(".start_2").src = "/star_active.png"
-            document.querySelector(".start_3").src = "/star.png"
-            document.querySelector(".start_4").src = "/star.png"
-            document.querySelector(".start_5").src = "/star.png"
+            const star1 = document.querySelector(".start_1") as HTMLImageElement | null;
+            if (star1) {
+                star1.src = "/star_active.png";
+            }
+
+            const star2 = document.querySelector(".start_2") as HTMLImageElement | null;
+            if (star2) {
+                star2.src = "/star_active.png";
+            }
+
+            const star3 = document.querySelector(".start_3") as HTMLImageElement | null;
+            if (star3) {
+                star3.src = "/star.png";
+            }
+
+            const star4 = document.querySelector(".start_4") as HTMLImageElement | null;
+            if (star4) {
+                star4.src = "/star.png";
+            }
+
+            const star5 = document.querySelector(".start_5") as HTMLImageElement | null;
+            if (star5) {
+                star5.src = "/star.png";
+            }
+
         } else if (starValue == 3) {
-            document.querySelector(".start_1").src = "/star_active.png"
-            document.querySelector(".start_2").src = "/star_active.png"
-            document.querySelector(".start_3").src = "/star_active.png"
-            document.querySelector(".start_4").src = "/star.png"
-            document.querySelector(".start_5").src = "/star.png"
+            const star1 = document.querySelector(".start_1") as HTMLImageElement | null;
+            if (star1) {
+                star1.src = "/star_active.png";
+            }
+
+            const star2 = document.querySelector(".start_2") as HTMLImageElement | null;
+            if (star2) {
+                star2.src = "/star_active.png";
+            }
+
+            const star3 = document.querySelector(".start_3") as HTMLImageElement | null;
+            if (star3) {
+                star3.src = "/star_active.png";
+            }
+
+            const star4 = document.querySelector(".start_4") as HTMLImageElement | null;
+            if (star4) {
+                star4.src = "/star.png";
+            }
+
+            const star5 = document.querySelector(".start_5") as HTMLImageElement | null;
+            if (star5) {
+                star5.src = "/star.png";
+            }
+
         } else if (starValue == 4) {
-            document.querySelector(".start_1").src = "/star_active.png"
-            document.querySelector(".start_2").src = "/star_active.png"
-            document.querySelector(".start_3").src = "/star_active.png"
-            document.querySelector(".start_4").src = "/star_active.png"
-            document.querySelector(".start_5").src = "/star.png"
+
+            const star1 = document.querySelector(".start_1") as HTMLImageElement | null;
+            if (star1) {
+                star1.src = "/star_active.png";
+            }
+
+            const star2 = document.querySelector(".start_2") as HTMLImageElement | null;
+            if (star2) {
+                star2.src = "/star_active.png";
+            }
+
+            const star3 = document.querySelector(".start_3") as HTMLImageElement | null;
+            if (star3) {
+                star3.src = "/star_active.png";
+            }
+
+            const star4 = document.querySelector(".start_4") as HTMLImageElement | null;
+            if (star4) {
+                star4.src = "/star_active.png";
+            }
+
+            const star5 = document.querySelector(".start_5") as HTMLImageElement | null;
+            if (star5) {
+                star5.src = "/star.png";
+            }
+
+
         } else {
-            document.querySelector(".start_1").src = "/star_active.png"
-            document.querySelector(".start_2").src = "/star_active.png"
-            document.querySelector(".start_3").src = "/star_active.png"
-            document.querySelector(".start_4").src = "/star_active.png"
-            document.querySelector(".start_5").src = "/star_active.png"
+            const star1 = document.querySelector(".start_1") as HTMLImageElement | null;
+            if (star1) {
+                star1.src = "/star_active.png";
+            }
+
+            const star2 = document.querySelector(".start_2") as HTMLImageElement | null;
+            if (star2) {
+                star2.src = "/star_active.png";
+            }
+
+            const star3 = document.querySelector(".start_3") as HTMLImageElement | null;
+            if (star3) {
+                star3.src = "/star_active.png";
+            }
+
+            const star4 = document.querySelector(".start_4") as HTMLImageElement | null;
+            if (star4) {
+                star4.src = "/star_active.png";
+            }
+
+            const star5 = document.querySelector(".start_5") as HTMLImageElement | null;
+            if (star5) {
+                star5.src = "/star_active.png";
+            }
+
+
         }
     }
 
@@ -64,7 +167,7 @@ export default function Assessment() {
         let formTemp: any = localStorage.getItem("formTemp")
         formTemp = JSON.parse(formTemp)
 
-            // console.log(formTemp)
+        // console.log(formTemp)
 
         if (!formTemp.ano) {
             //não é anonimo
@@ -74,7 +177,7 @@ export default function Assessment() {
             formOBJ.cpf = formTemp.cpf;
             formOBJ.email = formTemp.email;
             //console.log("n ano")
-        }else{
+        } else {
             console.log("entrou:", formTemp)
             formOBJ.nome = formTemp.nome
             formOBJ.ano = formTemp.ano
