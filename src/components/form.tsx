@@ -125,7 +125,7 @@ export default function Form() {
     return (
         <div className="bg-white min-h-4/5 rounded-3xl form p-10 flex flex-col items-center py-0 mx-3">
 
-            <span className="my-8 text-2xl font-bold text-blue-400 drop-shadow-md">Formulário</span>
+            <span className="my-10 text-2xl font-bold text-blue-400 drop-shadow-md">Formulário</span>
 
             <div className="grid_form grid grid-rows-3 grid-flow-col gap-4 h-1/2 w-full">
                 <div className="flex items-center">
@@ -152,7 +152,7 @@ export default function Form() {
                 <span onClick={() => navForm(true)} className="text-blue-400 cursor-pointer hover:text-blue-500"> Enviar como anônimo</span>
             </div>
 
-            <button onClick={() => navForm(false)} className="btn-continuar mb-10 bg-purple-500 hover:bg-white hover:text-purple-500 hover:border-purple-500 border-4 border-white text-white p-3 px-5 rounded-md w-1/2 text-xl font-bold">Continuar</button>
+            <button onClick={() => navForm(false)} className="btn-continuar mt-6 mb-14 bg-purple-500 hover:bg-white hover:text-purple-500 hover:border-purple-500 border-4 border-white text-white p-3 px-5 rounded-md w-1/2 text-xl font-bold">Continuar</button>
 
         </div >
     )

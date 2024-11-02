@@ -2,11 +2,16 @@
 import '@/styles/assessment.css'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
+import { typeAvaliacao } from '@/types/typeAvaliacao'
 
 export default function Assessment() {
 
-    const [form, setForm] = useState([])
-    const formOBJ: any = {
+    type typeArrayAvaliacao = typeAvaliacao[];
+
+
+
+    const [formOBJ, setFormOBJ] = useState<typeAvaliacao>({
         setor: '',
         unidade: '',
         nome: '',
@@ -16,194 +21,78 @@ export default function Assessment() {
         ano: false,
         star: 5,
         description: ''
-    }
+    });
+
+    useEffect(() => {
+        console.log(formOBJ)
+    }, [formOBJ])
 
 
+    const [activeStars, setActiveStars] = useState(5)
     const handleStar = (starValue: number) => {
-        formOBJ.star = starValue
 
-        if (starValue == 1) {
-            const star1 = document.querySelector(".start_1") as HTMLImageElement | null;
-            if (star1) {
-                star1.src = "/star_active.png";
-            }
+        setFormOBJ(prev => ({ ...prev, star: starValue }));
 
-            const star2 = document.querySelector(".start_2") as HTMLImageElement | null;
-            if (star2) {
-                star2.src = "/star.png";
-            }
-
-            const star3 = document.querySelector(".start_3") as HTMLImageElement | null;
-            if (star3) {
-                star3.src = "/star.png";
-            }
-
-            const star4 = document.querySelector(".start_4") as HTMLImageElement | null;
-            if (star4) {
-                star4.src = "/star.png";
-            }
-
-            const star5 = document.querySelector(".start_5") as HTMLImageElement | null;
-            if (star5) {
-                star5.src = "/star.png";
-            }
-
-        } else if (starValue == 2) {
-            const star1 = document.querySelector(".start_1") as HTMLImageElement | null;
-            if (star1) {
-                star1.src = "/star_active.png";
-            }
-
-            const star2 = document.querySelector(".start_2") as HTMLImageElement | null;
-            if (star2) {
-                star2.src = "/star_active.png";
-            }
-
-            const star3 = document.querySelector(".start_3") as HTMLImageElement | null;
-            if (star3) {
-                star3.src = "/star.png";
-            }
-
-            const star4 = document.querySelector(".start_4") as HTMLImageElement | null;
-            if (star4) {
-                star4.src = "/star.png";
-            }
-
-            const star5 = document.querySelector(".start_5") as HTMLImageElement | null;
-            if (star5) {
-                star5.src = "/star.png";
-            }
-
-        } else if (starValue == 3) {
-            const star1 = document.querySelector(".start_1") as HTMLImageElement | null;
-            if (star1) {
-                star1.src = "/star_active.png";
-            }
-
-            const star2 = document.querySelector(".start_2") as HTMLImageElement | null;
-            if (star2) {
-                star2.src = "/star_active.png";
-            }
-
-            const star3 = document.querySelector(".start_3") as HTMLImageElement | null;
-            if (star3) {
-                star3.src = "/star_active.png";
-            }
-
-            const star4 = document.querySelector(".start_4") as HTMLImageElement | null;
-            if (star4) {
-                star4.src = "/star.png";
-            }
-
-            const star5 = document.querySelector(".start_5") as HTMLImageElement | null;
-            if (star5) {
-                star5.src = "/star.png";
-            }
-
-        } else if (starValue == 4) {
-
-            const star1 = document.querySelector(".start_1") as HTMLImageElement | null;
-            if (star1) {
-                star1.src = "/star_active.png";
-            }
-
-            const star2 = document.querySelector(".start_2") as HTMLImageElement | null;
-            if (star2) {
-                star2.src = "/star_active.png";
-            }
-
-            const star3 = document.querySelector(".start_3") as HTMLImageElement | null;
-            if (star3) {
-                star3.src = "/star_active.png";
-            }
-
-            const star4 = document.querySelector(".start_4") as HTMLImageElement | null;
-            if (star4) {
-                star4.src = "/star_active.png";
-            }
-
-            const star5 = document.querySelector(".start_5") as HTMLImageElement | null;
-            if (star5) {
-                star5.src = "/star.png";
-            }
-
-
-        } else {
-            const star1 = document.querySelector(".start_1") as HTMLImageElement | null;
-            if (star1) {
-                star1.src = "/star_active.png";
-            }
-
-            const star2 = document.querySelector(".start_2") as HTMLImageElement | null;
-            if (star2) {
-                star2.src = "/star_active.png";
-            }
-
-            const star3 = document.querySelector(".start_3") as HTMLImageElement | null;
-            if (star3) {
-                star3.src = "/star_active.png";
-            }
-
-            const star4 = document.querySelector(".start_4") as HTMLImageElement | null;
-            if (star4) {
-                star4.src = "/star_active.png";
-            }
-
-            const star5 = document.querySelector(".start_5") as HTMLImageElement | null;
-            if (star5) {
-                star5.src = "/star_active.png";
-            }
-
-
-        }
+        setActiveStars(starValue)
     }
 
     const handleDescription = (description: string) => {
-        formOBJ.description = description
+        formOBJ.description = description;
     }
 
     const sendAssess = () => {
 
-        let formTemp: any = localStorage.getItem("formTemp")
-        formTemp = JSON.parse(formTemp)
+        const getForm: string = localStorage.getItem("formTemp") || ""
+        if (getForm) {
 
-        // console.log(formTemp)
+            const formTemp: typeAvaliacao = JSON.parse(getForm)
 
-        if (!formTemp.ano) {
-            //não é anonimo
-            formOBJ.setor = formTemp.setor;
-            formOBJ.unidade = formTemp.unidade;
-            formOBJ.nome = formTemp.nome;
-            formOBJ.cpf = formTemp.cpf;
-            formOBJ.email = formTemp.email;
-            //console.log("n ano")
+            if (!formTemp.ano) {
+                //não é anonimo
+                formOBJ.setor = formTemp.setor;
+                formOBJ.unidade = formTemp.unidade;
+                formOBJ.nome = formTemp.nome;
+                formOBJ.cpf = formTemp.cpf;
+                formOBJ.email = formTemp.email;
+
+            } else {
+
+                formOBJ.nome = formTemp.nome
+                formOBJ.ano = formTemp.ano
+            }
         } else {
-            console.log("entrou:", formTemp)
-            formOBJ.nome = formTemp.nome
-            formOBJ.ano = formTemp.ano
+            console.log("Não existe formTemp")
         }
 
-        let listAvalicao: any = localStorage.getItem("listAvalicao")
-        listAvalicao = JSON.parse(listAvalicao)
-        if (!listAvalicao) {
-            listAvalicao = []
+        const GetlistAvalicao: string = localStorage.getItem("listAvalicao") || ""
+
+        if (GetlistAvalicao) {
+
+            const listAvalicao: typeArrayAvaliacao = JSON.parse(GetlistAvalicao)
             listAvalicao.push(formOBJ)
+            localStorage.setItem("listAvalicao", JSON.stringify(listAvalicao))
         } else {
+            const listAvalicao: typeArrayAvaliacao = []
             listAvalicao.push(formOBJ)
+            localStorage.setItem("listAvalicao", JSON.stringify(listAvalicao))
         }
         localStorage.removeItem("formTemp");
-        localStorage.setItem("listAvalicao", JSON.stringify(listAvalicao))
     }
 
     return (
         <div className="w-96 h-3/4 rounded-xl bg-white flex items-center flex-col mx-3">
             <span className='font-bold text-2xl mt-12 mb-8'>Feedback</span>
             <div className='w-3/4 flex justify-evenly'>
-                <img onClick={() => handleStar(1)} className="w-10 h-10 stars start_1" src="/star_active.png" alt="star 1" />
-                <img onClick={() => handleStar(2)} className="w-10 h-10 stars start_2" src="/star_active.png" alt="star 2" />
-                <img onClick={() => handleStar(3)} className="w-10 h-10 stars start_3" src="/star_active.png" alt="star 3" />
-                <img onClick={() => handleStar(4)} className="w-10 h-10 stars start_4" src="/star_active.png" alt="star 4" />
-                <img onClick={() => handleStar(5)} className="w-10 h-10 stars start_5" src="/star_active.png" alt="star 5" />
+                {[...Array(5)].map((_, index) => (
+                    <Image
+                        key={index}
+                        width={30}
+                        height={30}
+                        onClick={() => handleStar(index + 1)}
+                        className="w-10 h-10 stars start_1"
+                        src={index < activeStars ? "/star_active.png" : "/star.png"}// PODE SER <=
+                        alt="star 1" />
+                ))}
             </div>
             <div className='w-3/4 mt-5'>
                 <span className=' text-sm text-gray-600'>Conte mais sobre sua experiência:</span>
