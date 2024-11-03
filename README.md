@@ -1,8 +1,10 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
-
-First, run the development server:
+## Para iniciar o projeto instale as dependencias:
+```
+npm install ---legacy-peer-deps
+```
+Depois, rode o local server:
 
 ```bash
 npm run dev
