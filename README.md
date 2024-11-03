@@ -1,4 +1,7 @@
 
+## instale o nodejs na sua maquina:
+(https://nodejs.org/en/)
+
 ## Para iniciar o projeto instale as dependencias:
 ```
 npm install ---legacy-peer-deps
