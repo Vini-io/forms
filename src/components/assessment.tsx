@@ -98,7 +98,7 @@ export default function Assessment() {
                 <span className=' text-sm text-gray-600'>Conte mais sobre sua experiência:</span>
             </div>
             <textarea maxLength={300} onChange={(e) => handleDescription(e.target.value)} className='border-2 w-3/4' rows={8}></textarea>
-            <Link href='/'>
+            <Link href='/formulario/avaliacao/sucesso'>
                 <button onClick={sendAssess} className='hover:bg-blue-700 font-bold bg-blue-500 text-white px-9 py-3 rounded-lg mt-8'>Enviar</button>
             </Link>
         </div>
